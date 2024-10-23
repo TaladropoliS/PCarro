@@ -28,10 +28,6 @@ public class AgregarProductoServlet extends HttpServlet {
         ProductoDAO productoDAO = new ProductoDAO();
         Boolean respuesta = productoDAO.agregar(nuevoProducto);
 
-//        List<Producto> productos = productoDAO.listar();
-//        Usuario util = new Usuario();
-//        Optional<String> optionalUsuario = util.obtenerUsuario(req);
-
         if(respuesta){
             resp.sendRedirect("/PCarro/Productos");
         }else{
