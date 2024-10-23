@@ -3,7 +3,7 @@
 <%@ page import="com.pcarro.modelo.DTO.Item" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% String usuario = (String) request.getSession().getAttribute("usuario");%>
+<%--<% String usuario = (String) request.getSession().getAttribute("usuario");%>--%>
 
 <html>
 <head><title>Editar Producto</title>
@@ -17,6 +17,10 @@
             <c:choose>
                 <c:when test="${usuario != null}">
                     <form method="post" action="/PCarro/EditarProducto">
+
+                            <%--                        Pasar el ID del producto--%>
+                        <input type="hidden" name="id" value="${producto.id}">
+
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre del Producto:</label>
                             <input type="text"

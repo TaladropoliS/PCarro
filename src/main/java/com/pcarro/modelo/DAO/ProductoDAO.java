@@ -78,8 +78,6 @@ public class ProductoDAO implements IDAO {
     @Override
     public Boolean editar(Producto producto) {
 
-        System.out.println(producto);
-
         String sql = "UPDATE PRODUCTOS SET nombre = '"
                 + producto.getNombre() + "', tipo = '"
                 + producto.getTipo() + "', precio = "

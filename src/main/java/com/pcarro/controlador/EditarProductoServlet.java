@@ -16,13 +16,14 @@ public class EditarProductoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Long id = Long.parseLong(req.getParameter("id"));
         String nombre = req.getParameter("nombre");
         String tipo = req.getParameter("tipo");
         Integer precio = Integer.parseInt(req.getParameter("precio"));
 
-        Producto nuevoProducto = new Producto(null, nombre, tipo, precio);
+        Producto productoEditar = new Producto(id, nombre, tipo, precio);
         ProductoDAO productoDAO = new ProductoDAO();
-        Boolean respuesta = productoDAO.editar(nuevoProducto);
+        Boolean respuesta = productoDAO.editar(productoEditar);
 
         if(respuesta){
             resp.sendRedirect("/PCarro/Productos");

@@ -29,12 +29,10 @@
             <th>Nombre</th>
             <th>Tipo</th>
             <th class="text-end pe-5">Precio</th>
-            <th class="text-center">Agregar</th>
+            <th class="text-center">Comprar</th>
+
             <c:if test="${usuario != null}">
-                <th class="text-center">Editar</th>
-            </c:if>
-            <c:if test="${usuario != null}">
-                <th class="text-center">Eliminar</th>
+                <th class="text-center">Acciones</th>
             </c:if>
         </tr>
         </thead>
@@ -49,22 +47,16 @@
                                       maxFractionDigits="0"/>
                 </td>
                 <th class="text-center">
-                    <a href="/PCarro/AgregarCarro?id=${producto.id}">
+                    <a class="btn btn-outline-primary" href="/PCarro/AgregarCarro?id=${producto.id}">
                         <jsp:include page="components/icons/cart_add.jsp"/>
                     </a>
                 </th>
-
                 <c:if test="${usuario != null}">
                     <th class="text-center">
-                        <a href="/PCarro/MostrarEditarProducto?id=${producto.id}">
-                            <jsp:include page="components/icons/cart_delete.jsp"/>
+                        <a class="btn btn-outline-primary mx-2" href="/PCarro/MostrarEditarProducto?id=${producto.id}">
+                            <jsp:include page="components/icons/edit.jsp"/>
                         </a>
-                    </th>
-                </c:if>
-
-                <c:if test="${usuario != null}">
-                    <th class="text-center">
-                        <a href="/PCarro/EliminarProducto?id=${producto.id}">
+                        <a class="btn btn-outline-primary mx-2" href="/PCarro/EliminarProducto?id=${producto.id}">
                             <jsp:include page="components/icons/cart_delete.jsp"/>
                         </a>
                     </th>
