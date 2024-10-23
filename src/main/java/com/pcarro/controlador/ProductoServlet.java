@@ -21,6 +21,7 @@ public class ProductoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Usuario util = new Usuario();
         ProductoDAO productoDAO = new ProductoDAO();
+
         Optional<String> optionalUsuario = util.obtenerUsuario(req);
         List<Producto> productos = productoDAO.listar();
 
