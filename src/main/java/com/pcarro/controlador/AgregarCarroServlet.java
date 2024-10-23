@@ -36,6 +36,5 @@ public class AgregarCarroServlet extends HttpServlet {
             carro.setItems(item);
         }
         resp.sendRedirect(req.getContextPath() + "/VerCarro");
-//        resp.sendRedirect("/PCarro/VerCarro");
     }
 }

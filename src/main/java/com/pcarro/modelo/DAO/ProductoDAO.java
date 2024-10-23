@@ -54,7 +54,6 @@ public class ProductoDAO implements IDAO {
                 + producto.getTipo() + "', "
                 + producto.getPrecio() + ")";
 
-        System.out.println(sql);
         try (Statement st = conectar().createStatement()) {
             st.execute(sql);
             return true;
@@ -66,6 +65,13 @@ public class ProductoDAO implements IDAO {
 
     @Override
     public Boolean eliminar(Long id) {
-        return null;
+        String sql = "DELETE FROM PRODUCTOS WHERE id =" + id;
+        try (Statement st = conectar().createStatement()){
+            st.execute(sql);
+            return true;
+        }catch (ClassNotFoundException | SQLException e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }
