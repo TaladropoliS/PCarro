@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <% String usuario = (String) request.getSession().getAttribute("usuario");%>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -28,24 +29,39 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/PCarro/carro.jsp">Carro</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/PCarro/agregarProducto.jsp">Agregar Producto</a>
-                </li>
+                <c:if test="${usuario != null}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/PCarro/agregarProducto.jsp">Agregar Producto</a>
+                    </li>
+                </c:if>
             </ul>
             <ul class="navbar-nav ms-auto">
 
-                <% if (usuario == null) { %>
-                <a class="nav-link" href="/PCarro/login.jsp">
-                    <jsp:include page="icons/user.jsp"/>
-                    LogIn
-                </a>
-                <% } else { %>
-                <span
-                        class="navbar-text">Bienvenido, <strong><%= usuario %></strong>
-                    </span>
-                <a class="nav-link"
-                   href="/PCarro/SessionCierre">LogOut</a>
-                <% } %>
+                <c:choose>
+                    <c:when test="${usuario != null}">
+                        <span class="navbar-text">Bienvenido, <strong><%= usuario %></strong></span>
+                        <a class="nav-link" href="/PCarro/SessionCierre">LogOut</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="nav-link" href="/PCarro/login.jsp">
+                            <jsp:include page="icons/user.jsp"/>
+                            LogIn
+                        </a>
+                    </c:otherwise>
+                </c:choose>
+
+                <%--                <% if (usuario == null) { %>--%>
+                <%--                <a class="nav-link" href="/PCarro/login.jsp">--%>
+                <%--                    <jsp:include page="icons/user.jsp"/>--%>
+                <%--                    LogIn--%>
+                <%--                </a>--%>
+                <%--                <% } else { %>--%>
+                <%--                <span--%>
+                <%--                        class="navbar-text">Bienvenido, <strong><%= usuario %></strong>--%>
+                <%--                    </span>--%>
+                <%--                <a class="nav-link"--%>
+                <%--                   href="/PCarro/SessionCierre">LogOut</a>--%>
+                <%--                <% } %>--%>
 
             </ul>
         </div>

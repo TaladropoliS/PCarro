@@ -20,7 +20,7 @@ public class ProductoDAO implements IDAO {
     public List<Producto> listar() {
         List<Producto> productos = new ArrayList<Producto>();
         try (Statement st = conectar().createStatement();
-             ResultSet rs = st.executeQuery("SELECT * FROM productos;")) {
+             ResultSet rs = st.executeQuery("SELECT * FROM productos ORDER BY id DESC;")) {
             while (rs.next()) {
                 Producto p = new Producto(rs.getLong("id"), rs.getString("nombre"),
                         rs.getString("tipo"), rs.getInt("precio"));
