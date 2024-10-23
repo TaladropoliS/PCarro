@@ -57,10 +57,6 @@
     </tr>
   </table>
   <%}%>
-  <ul>
-    <li><a href="/ProyectoCarro/Productos">Seguir comprando</a></li>
-    <li><a href="/ProyectoCarro/index.jsp">Volver al inicio</a></li>
-  </ul>
 </main>
 
 <script src="assets/js/bootstrap.bundle.min.js"></script>

@@ -18,5 +18,7 @@
     <h1>Market PC</h1>
 
 </main>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -17,7 +17,14 @@
 
     <div class="col-md-4 mx-auto">
         <div class="card p-3">
-            <form method="post" action="/ProyectoCarro/InicioSesion">
+
+            <% String errorMessage = (String) request.getAttribute("errorMessage");
+                if (errorMessage != null) {%>
+            <div class="alert alert-danger" role="alert"><%= errorMessage %>
+            </div>
+            <% }%>
+
+            <form method="post" action="/PCarro/InicioSesion">
                 <div class="mb-3">
                     <label for="usuario" class="form-label">Usuario:</label>
                     <input type="text" class="form-control" id="usuario" name="usuario">
@@ -28,6 +35,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
+
         </div>
     </div>
 </main>
