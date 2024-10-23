@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page import="com.pcarro.controlador.ProductoServlet" %>
-<% String usuario = (String) request.getSession().getAttribute("usuario");%>
+<%--<% String usuario = (String) request.getSession().getAttribute("usuario");%>--%>
 <html>
 <head>
     <title>Productos</title>
@@ -31,6 +31,9 @@
             <th class="text-end pe-5">Precio</th>
             <th class="text-center">Agregar</th>
             <c:if test="${usuario != null}">
+                <th class="text-center">Editar</th>
+            </c:if>
+            <c:if test="${usuario != null}">
                 <th class="text-center">Eliminar</th>
             </c:if>
         </tr>
@@ -50,6 +53,14 @@
                         <jsp:include page="components/icons/cart_add.jsp"/>
                     </a>
                 </th>
+
+                <c:if test="${usuario != null}">
+                    <th class="text-center">
+                        <a href="/PCarro/MostrarEditarProducto?id=${producto.id}">
+                            <jsp:include page="components/icons/cart_delete.jsp"/>
+                        </a>
+                    </th>
+                </c:if>
 
                 <c:if test="${usuario != null}">
                     <th class="text-center">
