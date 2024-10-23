@@ -49,13 +49,19 @@ public class ProductoDAO implements IDAO {
 
     @Override
     public Boolean agregar(Producto producto) {
-        String sql = "INSERT INTO PRODUCTOS (nombre, tipo, precio) VALUES('" + producto.getNombre() + "', '" + producto.getTipo() + "', " + producto.getPrecio() + "),";
+        String sql = "INSERT INTO PRODUCTOS (nombre, tipo, precio) VALUES('"
+                + producto.getNombre() + "', '"
+                + producto.getTipo() + "', "
+                + producto.getPrecio() + ")";
+
+        System.out.println(sql);
         try (Statement st = conectar().createStatement()) {
             st.execute(sql);
+            return true;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
+            return false;
         }
-        return true;
     }
 
     @Override

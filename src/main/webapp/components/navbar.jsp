@@ -28,6 +28,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/PCarro/carro.jsp">Carro</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/PCarro/agregarProducto.jsp">Agregar Producto</a>
+                </li>
             </ul>
             <ul class="navbar-nav ms-auto">
 
