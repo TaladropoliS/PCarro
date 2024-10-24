@@ -56,8 +56,8 @@
                         <a class="btn btn-outline-primary mx-2" href="/PCarro/MostrarEditarProducto?id=${producto.id}">
                             <jsp:include page="components/icons/edit.jsp"/>
                         </a>
-                        <a class="btn btn-outline-primary mx-2" href="/PCarro/EliminarProducto?id=${producto.id}">
-                            <jsp:include page="components/icons/cart_delete.jsp"/>
+                        <a class="btn btn-outline-danger mx-2" href="/PCarro/EliminarProducto?id=${producto.id}">
+                            <jsp:include page="components/icons/delete.jsp"/>
                         </a>
                     </th>
                 </c:if>
